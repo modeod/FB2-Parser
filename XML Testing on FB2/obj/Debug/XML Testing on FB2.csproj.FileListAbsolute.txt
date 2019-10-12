@@ -12,3 +12,9 @@ C:\Users\Илья\Desktop\XML Testing on FB2\XML Testing on FB2\obj\Debug\XML Te
 C:\Users\Илья\Desktop\XML Testing on FB2\XML Testing on FB2\obj\Debug\XML Testing on FB2.csproj.CoreCompileInputs.cache
 C:\Users\Илья\Desktop\XML Testing on FB2\XML Testing on FB2\obj\Debug\XML Testing on FB2.exe
 C:\Users\Илья\Desktop\XML Testing on FB2\XML Testing on FB2\obj\Debug\XML Testing on FB2.pdb
+C:\Users\Илья\Documents\Projects\FB2-Parser\XML Testing on FB2\bin\Debug\XML Testing on FB2.exe.config
+C:\Users\Илья\Documents\Projects\FB2-Parser\XML Testing on FB2\bin\Debug\XML Testing on FB2.exe
+C:\Users\Илья\Documents\Projects\FB2-Parser\XML Testing on FB2\bin\Debug\XML Testing on FB2.pdb
+C:\Users\Илья\Documents\Projects\FB2-Parser\XML Testing on FB2\obj\Debug\XML Testing on FB2.csprojAssemblyReference.cache
+C:\Users\Илья\Documents\Projects\FB2-Parser\XML Testing on FB2\obj\Debug\XML Testing on FB2.exe
+C:\Users\Илья\Documents\Projects\FB2-Parser\XML Testing on FB2\obj\Debug\XML Testing on FB2.pdb

@@ -12,8 +12,7 @@ namespace XML_Testing_on_FB2
     {
         static void Main(string[] args)
         {
-            //DescriptionNode descriptionNode = new DescriptionNode();
-            //descriptionNode.showNode(@"../../XML/Resurrected Demon King[1,2].txt");
+
             DescriptionNode description = new DescriptionNode();
             description.showNode(@"../../XML/Resurrected Demon King[1,2].txt", HelperFB2.showInConsole);
             BodyFormatingProgram body = new BodyFormatingProgram();

@@ -142,7 +142,7 @@ namespace XML_Testing_on_FB2
             File.AppendAllText(@"../../XML/formated text.txt", s);
         }
 
-       public static string checkAllP(XmlNodeList p, XmlNamespaceManager nameSpace, XmlNode xmlnsAttr)
+        public static string checkAllP(XmlNodeList p, XmlNamespaceManager nameSpace, XmlNode xmlnsAttr)
         {
             string txt = "";
             foreach (XmlNode node in p)
@@ -162,7 +162,6 @@ namespace XML_Testing_on_FB2
                     string prepreTxt = findTags(preTxt, outer, xmlnsAttr); //Here
                     prepreTxt = prepreTxt.Trim();
                     txt += prepreTxt + "\n";
-
                 }
             }
 
@@ -172,30 +171,34 @@ namespace XML_Testing_on_FB2
         //REPLASE CAN BE CHANGED TO WPF CONSTRUCTION
         public static string findTags(string txt, string outer, XmlNode xmlnsAttr)
         {
+            char charr = '"';
             //TODO: проверять есть ли еще методы и всякая поебень в теге, от этого зависит колво символов на удаление
             string txtToReturn = null;
-            Regex regex = new Regex(@"<strong .*>.*</strong>");
-            Regex regex2 = new Regex(@"<i .*>.*</i>");
-            Regex regexStart = new Regex($"<p .*>");
+            /*
+             * 
+             * <p style>
+             * 
+             * if (left right center)
+             * 
+             */
+            Regex regexStart = new Regex($"<p [A-Za-z0-9,^*: {charr}-=@]*>");
             //Регексом искать теги с параметрами (как в реге выше) 
-
-
+            
             //int i = regex.Match(outer).Index;
 
             //Тут регекс
-            //
             txtToReturn = regexStart.Replace(outer, "\t");
-                //txtToReturn = outer;
+            //txtToReturn = outer;
 
-                //Тут строки
-                txtToReturn = txtToReturn.Replace("<i>", "<i> ");
-                txtToReturn = txtToReturn.Replace("</i>", " </i>");
-                txtToReturn = txtToReturn.Replace("<p>", "\t");
-                txtToReturn = txtToReturn.Replace("</p>", "\n");
-                txtToReturn = txtToReturn.Replace("<strong>", "<strong> "); // -STRONG ={
-                txtToReturn = txtToReturn.Replace("</strong>", " </strong>"); // }=
+            //Тут строки
+            txtToReturn = txtToReturn.Replace("<i>", "<i> ");
+            txtToReturn = txtToReturn.Replace("</i>", " </i>");
+            txtToReturn = txtToReturn.Replace("<p>", "\t");
+            txtToReturn = txtToReturn.Replace("</p>", "\n");
+            txtToReturn = txtToReturn.Replace("<strong>", "<strong> "); // -STRONG ={
+            txtToReturn = txtToReturn.Replace("</strong>", " </strong>"); // }=
 
-                return txtToReturn;
+            return txtToReturn;
             
              
         }

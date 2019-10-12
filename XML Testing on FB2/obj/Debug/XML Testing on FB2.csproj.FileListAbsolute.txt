@@ -1,7 +1,0 @@
-C:\Users\osipc\source\Learning C# 2.0\FB2-Parser\XML Testing on FB2\bin\Debug\XML Testing on FB2.exe.config
-C:\Users\osipc\source\Learning C# 2.0\FB2-Parser\XML Testing on FB2\bin\Debug\XML Testing on FB2.exe
-C:\Users\osipc\source\Learning C# 2.0\FB2-Parser\XML Testing on FB2\bin\Debug\XML Testing on FB2.pdb
-C:\Users\osipc\source\Learning C# 2.0\FB2-Parser\XML Testing on FB2\obj\Debug\XML Testing on FB2.csprojAssemblyReference.cache
-C:\Users\osipc\source\Learning C# 2.0\FB2-Parser\XML Testing on FB2\obj\Debug\XML Testing on FB2.csproj.CoreCompileInputs.cache
-C:\Users\osipc\source\Learning C# 2.0\FB2-Parser\XML Testing on FB2\obj\Debug\XML Testing on FB2.exe
-C:\Users\osipc\source\Learning C# 2.0\FB2-Parser\XML Testing on FB2\obj\Debug\XML Testing on FB2.pdb

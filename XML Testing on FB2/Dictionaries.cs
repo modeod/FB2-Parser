@@ -9,6 +9,7 @@ namespace XML_Testing_on_FB2
         RU,
         EN
     }
+
     class Dictionaries
     {
         public Dictionary<string, string> languages = new Dictionary<string, string>();

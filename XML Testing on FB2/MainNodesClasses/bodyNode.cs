@@ -24,7 +24,7 @@ namespace XML_Testing_on_FB2
 
         private void NodeReplace(XmlNode bodyNode)
         {
-            text = HelperFB2.findTags(bodyNode.InnerText, bodyNode.OuterXml, xmlnsAttr);
+            text = HelperFB2.findTags(bodyNode.OuterXml, xmlnsAttr);
         }
 
     }

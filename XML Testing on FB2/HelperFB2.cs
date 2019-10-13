@@ -31,8 +31,10 @@ namespace XML_Testing_on_FB2
         {
             //Select method to show all
             
-            if (func == HelperFB2.showInTxtFile) { File.Delete(@"../../XML/formated text.txt"); }
-               
+            if (func == HelperFB2.showBodyInTxt) { File.Delete(@"../../XML/BookMainText.txt"); }
+            if (func == HelperFB2.showDescriptionInTxt) { File.Delete(@"../../XML/BookDescription.txt"); }
+
+
             //TODO?: get path from console
             loadDocument(ref xDoc, docPath);
             
@@ -136,30 +138,44 @@ namespace XML_Testing_on_FB2
         {
             Console.WriteLine(s);
         }
-        public static void showInTxtFile(string s)
+
+        public static void showDescriptionInTxt(string s)
         {
-            //File.AppendAllText(@"../../XML/formated text.txt", "\n");
-            File.AppendAllText(@"../../XML/formated text.txt", s);
+            File.AppendAllText(@"../../XML/BookDescription.txt", s);
         }
 
-        public static string checkAllP(XmlNodeList p, XmlNamespaceManager nameSpace, XmlNode xmlnsAttr)
+        public static void showBodyInTxt(string s)
         {
+            File.AppendAllText(@"../../XML/BookMainText.txt", s);
+        }
+
+        public static string checkAllP(XmlNodeList nodeS, XmlNamespaceManager nameSpace, XmlNode xmlnsAttr)
+        {
+            
             string txt = "";
-            foreach (XmlNode node in p)
+            foreach (XmlNode node in nodeS)
             // IK about "one" ._.
             {
-                XmlNodeList nextP = node.SelectNodes("fb:p", nameSpace);
-                if (nextP.Count > 0)
+                XmlNodeList nextNode = null;
+                if(node.Name == "p")
                 {
-                    txt += checkAllP(nextP, nameSpace, xmlnsAttr);
+                    nextNode = node.SelectNodes("fb:p", nameSpace);
+                }
+                else if(node.Name == "section")
+                {
+                    nextNode = node.SelectNodes("fb:section", nameSpace);
+                }
+
+                if (nextNode.Count > 0)
+                {
+                    txt += checkAllP(nextNode, nameSpace, xmlnsAttr);
                 }
                 else
                 {
                     txt += "    ";
-                    string preTxt = node.InnerText;
                     string outer = node.OuterXml;
 
-                    string prepreTxt = findTags(preTxt, outer, xmlnsAttr); //Here
+                    string prepreTxt = findTags(outer, xmlnsAttr); //Here
                     prepreTxt = prepreTxt.Trim();
                     txt += prepreTxt + "\n";
                 }
@@ -169,13 +185,12 @@ namespace XML_Testing_on_FB2
         }
 
         //REPLASE CAN BE CHANGED TO WPF CONSTRUCTION
-        //REPLASE CAN BE CHANGED TO WPF CONSTRUCTION
-        public static string findTags(string txt, string outer, XmlNode xmlnsAttr)
+        public static string findTags(string outer, XmlNode xmlnsAttr)
         {
             char charr = '"';
             string txtToReturn = null;
             // [A-Za-z0-9,^*: {charr}-=@]*
-            Regex regexStart = new Regex($"<p xmlns=\"{xmlnsAttr}\">");
+            Regex regexStart = new Regex($"<p xmlns=\"[A-Za-z0-9,^* :{charr}-=@]*\">");
 
             Regex regexStartCenAll = new Regex($"<p [A-Za-z0-9,^* :{charr}-=@]* style=\"text-align: center\" [A-Za-z0-9,^*:{charr}-=@]*>");
             Regex regexStartCenRight = new Regex($"<p style=\"text-align: center\" [A-Za-z0-9,^*: {charr}-=@]*>");
@@ -211,7 +226,7 @@ namespace XML_Testing_on_FB2
             txtToReturn = regexStartRightRight.Replace(txtToReturn, "Центровка справа,строка справа \n\n\n\n\n\n\n\n");
             txtToReturn = regexStartRightLeft.Replace(txtToReturn, "Центровка справа,строка слева \n\n\n\n\n\n\n\n\n");
 
-            txtToReturn = regexStartCenNone.Replace(txtToReturn, "Центровка слева,строка единственная\n\n\n\n\n\n\n\n");
+            txtToReturn = regexStartCenNone.Replace(txtToReturn, "Центровка по центру,строка единственная\n\n\n\n\n\n\n\n");
             txtToReturn = regexStartLeftNone.Replace(txtToReturn, "Центровка слева,строка единственная\n\n\n\n\n\n\n\n ");
             txtToReturn = regexStartRightAll.Replace(txtToReturn, "Центровка справа,строка единственная\n\n\n\n\n\n\n\n ");
 
@@ -238,5 +253,17 @@ namespace XML_Testing_on_FB2
 
             return txtToReturn;
         }
+
+        public static void ButtonInfoCreating(string s)
+        {
+            File.AppendAllText(@"../../XML/Settings.txt", s);
+        }
+
+        public static void ButtonInfo(XmlNode annotationNode/* , XmlNode authorNode */,string bookName)
+        {
+            string ButtonInfoText = $"Название книги : {bookName}\n\tОписание : {annotationNode}";
+
+        }
+        
     }
 }

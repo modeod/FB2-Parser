@@ -138,7 +138,8 @@ namespace XML_Testing_on_FB2
                 catch { trans = ""; au = ""; }
 
 
-                writeNodeText(func, au, trans, bookName, lang, dateValue, dateInner, s);
+                writeNodeText(func, au, trans, bookName, lang, dateValue, dateInner, s, posterID);
+                HelperFB2.ButtonInfo(annotationNode/*,authorNodes*/,bookName);
             }
 
             
@@ -165,7 +166,7 @@ namespace XML_Testing_on_FB2
             private void writeNodeText(
                 howToShow func, string au, string trans,
                 string bookName, string lang, string dateValue,
-                string dateInner, string s
+                string dateInner, string s, string posterID
                 )
             {
                 string writeTxt =

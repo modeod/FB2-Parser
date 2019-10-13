@@ -51,7 +51,6 @@ namespace XML_Testing_on_FB2
                 string substring = base64ImageString.Substring(0, 5);
                 string extension = checkFileExtention(substring);
                 byte[] base64EncodedBytes = Convert.FromBase64String(base64ImageString);
-                DirectoryInfo dir = new DirectoryInfo(path);
                 if (!Directory.Exists(path)) { Directory.CreateDirectory(path); }
                 
                 File.WriteAllBytes($"{path}/{imageName}.{extension}", base64EncodedBytes);

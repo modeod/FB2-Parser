@@ -44,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base64ImageDecoder.cs" />
-    <Compile Include="MainNodesClasses\bodyNode.cs" />
+    <Compile Include="FB2Decorators.cs" />
+    <Compile Include="FB2ParserCore.cs" />
+    <Compile Include="FB2ParserFormater.cs" />
+    <Compile Include="HowToShow.cs" />
     <Compile Include="Dictionaries.cs" />
     <Compile Include="HelperFB2.cs" />
-    <Compile Include="MainNodesClasses\DescriptionNode.cs" />
+    <Compile Include="ParserFormater.cs" />
+    <Compile Include="ParsersCore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
